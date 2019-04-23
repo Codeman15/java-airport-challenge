@@ -6,15 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.*;
 
-public class AirportTest {
+public class PlaneTest {
 
-    Airport airport = new Airport ();
+    Plane plane = new Plane();
 
     @Test
-    public void hasNoPlanesByDefault() {
-        assertEquals(0, airport.planes.length);
-
+    public void canLandAtAirport() {
+        assertEquals("Exists", plane.land());
     }
-
-
 }
