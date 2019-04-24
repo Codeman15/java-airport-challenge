@@ -4,13 +4,25 @@ import java.util.ArrayList;
 
 public class Airport {
 
-    private static ArrayList<Plane> planes = new ArrayList<Plane>();
+    private  ArrayList<Plane> hanger = new ArrayList<Plane>();
+    private Weather weather;
 
-    public static ArrayList<Plane> getPlanes() {
-        return planes;
+    public Airport(Weather weather) {
+        this.weather = weather;
     }
 
-    public void addPlanes(Plane plane) {
-        planes.add(plane);
+    public  ArrayList<Plane> getPlanes() {
+        return hanger;
+    }
+
+    public void clearForLanding(Plane plane) {
+        hanger.add(plane);
+    }
+
+    public boolean clearForTakeOff(Plane plane) {
+        if(weather.isStormy()){
+            throw new Error("cannont takeoff during storm");
+        }
+        return hanger.remove(plane);
     }
 }
